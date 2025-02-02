@@ -1,4 +1,10 @@
 part of 'splash_bloc.dart';
 
-@immutable
-sealed class SplashEvent {}
+abstract class SplashEvent extends Equatable {
+  @override
+  List<Object> get props => [];
+}
+
+class SplashStarted extends SplashEvent {}
+
+class SplashCompleted extends SplashEvent {}

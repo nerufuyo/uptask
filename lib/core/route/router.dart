@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uptask/core/route/route_path.dart';
+import 'package:uptask/core/core.dart';
 
 import '../../presentation/presentation.dart';
 
@@ -20,7 +21,15 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RoutePath.splash,
       name: ScreenName.splash,
-      builder: (context, state) => SplashScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<SplashBloc>()..add(SplashStarted()),
+        child: SplashScreen(),
+      ),
     ),
+    GoRoute(
+      path: RoutePath.home,
+      name: ScreenName.home,
+      builder: (context, state) => HomeScreen(),
+    )
   ],
 );

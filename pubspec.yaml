@@ -16,6 +16,7 @@ dependencies:
   dartz: ^0.10.1
   get_it: ^8.0.3
   equatable: ^2.0.7
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:

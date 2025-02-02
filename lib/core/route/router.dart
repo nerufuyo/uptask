@@ -6,7 +6,6 @@ import 'package:uptask/core/core.dart';
 import '../../presentation/presentation.dart';
 
 final GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
-
 final GoRouter router = GoRouter(
   navigatorKey: globalKey,
   initialLocation: RoutePath.splash,
@@ -27,9 +26,17 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
+      path: RoutePath.auth,
+      name: ScreenName.auth,
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<AuthBloc>(),
+        child: AuthScreen(),
+      ),
+    ),
+    GoRoute(
       path: RoutePath.home,
       name: ScreenName.home,
       builder: (context, state) => HomeScreen(),
-    )
+    ),
   ],
 );

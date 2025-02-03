@@ -31,6 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(AuthLoading());
     final result = await _authRepository.getTokenByLogin(
+      username: event.username,
       email: event.email,
       password: event.password,
     );
@@ -52,6 +53,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   ) async {
     emit(AuthLoading());
     final result = await _authRepository.getTokenByRegister(
+      username: event.username,
       email: event.email,
       password: event.password,
     );

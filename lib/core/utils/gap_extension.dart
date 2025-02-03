@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 extension SpacedRow on Row {
   Row withSpacing(double spacing) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children:
           _addSpacingBetweenChildren(children, spacing, isHorizontal: true),
@@ -14,7 +14,7 @@ extension SpacedRow on Row {
 extension SpacedColumn on Column {
   Column withSpacing(double spacing) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children:
           _addSpacingBetweenChildren(children, spacing, isHorizontal: false),

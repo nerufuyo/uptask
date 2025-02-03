@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:uptask/core/core.dart';
+import 'package:uptask/presentation/auth/widgets/auth_form_widget.dart';
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
+  @override
+  State<AuthScreen> createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        padding: EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: MediaQuery.of(context).size.height * 0.1,
-        ),
+        width: MediaQuery.sizeOf(context).width,
+        height: MediaQuery.sizeOf(context).height,
+        padding: EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               AppConstant.appName,
@@ -24,6 +27,7 @@ class AuthScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            AuthFormWidget(),
             Text(
               'Copyright © ${DateTime.now().year}',
               style: AppTypography.headline6.copyWith(
@@ -31,7 +35,7 @@ class AuthScreen extends StatelessWidget {
               ),
             ),
           ],
-        ),
+        ).withSpacing(48),
       ),
     );
   }

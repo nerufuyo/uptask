@@ -19,12 +19,17 @@ class AuthRepository {
       );
 
   Future<Either<String, dynamic>> getTokenByLogin({
+    required String username,
     required String email,
     required String password,
   }) =>
       DartzTryCatch.network(
         () async {
-          final response = await _userRemoteData.login(email, password);
+          final response = await _userRemoteData.login(
+            username,
+            email,
+            password,
+          );
 
           if (response.isNotEmpty) return response;
 
@@ -33,12 +38,17 @@ class AuthRepository {
       );
 
   Future<Either<String, dynamic>> getTokenByRegister({
+    required String username,
     required String email,
     required String password,
   }) =>
       DartzTryCatch.network(
         () async {
-          final response = await _userRemoteData.register(email, password);
+          final response = await _userRemoteData.register(
+            username,
+            email,
+            password,
+          );
 
           if (response.isNotEmpty) return response;
 
